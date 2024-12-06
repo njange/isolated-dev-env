@@ -10,11 +10,11 @@ COPY . /app
 # Install any necessary dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Make port 80 available to the world outside this container
-EXPOSE 80
+# Install Django
+RUN pip install django
 
-# Define environment variable
-ENV NAME=World
+# Make port 8000 available to the world outside this container
+EXPOSE 8080
 
-# Run the application
-CMD ["python", "app.py"]
+# Run the Django development server
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
