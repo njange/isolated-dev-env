@@ -25,40 +25,44 @@ Ensure you have the following installed:
 ### **Setup Instructions**
 
 #### 1. Clone the Repository
-```bash
-git clone https://github.com/your-username/django-webscraper.git
+
+``code
+git clone https://github.com/njange/django-webscraper.git
 cd django-webscraper
 
- 2. Install Dependencies
-```bash
+#### 2. Install Dependencies
+
+``bash
 pip install -r requirements.txt
 
-3. Apply Migrations
-bash
+#### 3. Apply Migrations
+
+``bash
 Copy code
 python manage.py makemigrations
 python manage.py migrate
-4. Run the Development Server
-bash
-Copy code
+#### 4. Run the Development Server
+
+``bash
 python manage.py runserver
+
 Usage
 Access the application in your browser at:
 
-text
-Copy code
+``bash
 http://127.0.0.1:8000/scraper/scrape/
+
 To scrape a different website, pass a url query parameter in the URL. For example:
 
-text
-Copy code
+``bash
 http://127.0.0.1:8000/scraper/scrape/?url=https://example.com
-Customization
+
+#### Customization
 Change the Scraping Logic
 Modify the scraping logic in scraper/utils.py:
 
-python
-Copy code
+``bash
+
 def scrape_website(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -70,24 +74,27 @@ def scrape_website(url):
             'link': item['href'],
         })
     return data
-Store Scraped Data
+    
+#### Store Scraped Data
 To save the scraped data to a database, use the ScrapedData model defined in scraper/models.py.
 
-Running with Docker (Optional)
+#### Running with Docker (Optional)
+
 Build the Docker Image:
-bash
-Copy code
+`bash
 docker build -t django-webscraper .
-Run the Container:
-bash
-Copy code
+
+#### Run the Container:
+
+``bash
 docker run -p 8000:8000 django-webscraper
-Access the Application:
-text
-Copy code
+
+#### Access the Application:
+
+``bash
 http://127.0.0.1:8000/scraper/scrape/
-License
+#### License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-Contributing
+#### Contributing
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
